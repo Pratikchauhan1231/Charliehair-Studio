@@ -17,9 +17,9 @@ ON CONFLICT (day_of_week) DO NOTHING;
 INSERT INTO barbers (id, name, client_type, image, available_days) VALUES
   ('b-akshay', 'Akshay Bavaliya', 'men', '/images/barbers/akshay.jpg', ARRAY['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']),
   ('b-jigar', 'Jigar Solanki', 'unisex', '/images/barbers/jigar.jpg', ARRAY['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']),
-  ('b-parth', 'Parth Solanki', 'men', '/images/barbers/parth.jpg', ARRAY['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']),
+  ('b-parth', 'Parth Solanki', 'unisex', '/images/barbers/parth.jpg', ARRAY['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']),
   ('b-hetal', 'Hetal Jigar Solanki', 'women', '/images/barbers/hetal.jpg', ARRAY['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
-ON CONFLICT (id) DO NOTHING;
+ON CONFLICT (id) DO UPDATE SET client_type = EXCLUDED.client_type;
 
 -- 3. Core Services from Pricing Menu
 INSERT INTO services (id, name, category, category_label, price, duration, description, popular, gender) VALUES

@@ -581,7 +581,7 @@ export const INITIAL_BARBERS: Barber[] = [
   {
     id: "b-parth",
     name: "Parth Solanki",
-    clientType: "men",
+    clientType: "unisex",
     image: "/images/barbers/parth.jpg",
     availableDays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   },

@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS services (
 CREATE TABLE IF NOT EXISTS barbers (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
-  client_type TEXT CHECK (client_type IN ('men', 'unisex')) DEFAULT 'unisex',
+  client_type TEXT CHECK (client_type IN ('men', 'unisex', 'women')) DEFAULT 'unisex',
   role TEXT,
   specialty TEXT,
   rating NUMERIC DEFAULT 5.0,
@@ -82,6 +82,15 @@ CREATE TABLE IF NOT EXISTS reviews (
   comment TEXT NOT NULL,
   service_name TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 8. Admin Accounts Table (For Studio Owner Login & Custom Passwords)
+CREATE TABLE IF NOT EXISTS admin_accounts (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  email TEXT UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- ==============================================================================
