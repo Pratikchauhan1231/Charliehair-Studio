@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 245, 241, 232;
+  --background-rgb: 17, 17, 17;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #111111;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Gold Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a227;
+}
+
+/* Gold Gradient Text Utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f5e08b 0%, #c9a227 50%, #9e7912 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxury Card Hover Effect */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 162, 39, 0.4);
+  box-shadow: 0 12px 30px -10px rgba(201, 162, 39, 0.15);
+}
